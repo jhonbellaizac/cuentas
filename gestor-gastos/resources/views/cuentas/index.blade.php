@@ -4,12 +4,20 @@
 
 <h1>Lista de Cuentas</h1>
 
-<a href="{{ route('cuentas.create') }}"
-   class="btn btn-primary mb-3">
+<div class="mb-3">
+    <a href="{{ route('cuentas.create') }}"
+       class="btn btn-primary">
 
-    Nueva Cuenta
+        Nueva Cuenta
 
-</a>
+    </a>
+    <a href="{{ route('dashboard') }}"
+       class="btn btn-secondary">
+
+        Volver
+
+    </a>
+</div>
 
 @if(session('success'))
 

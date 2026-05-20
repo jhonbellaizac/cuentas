@@ -4,12 +4,20 @@
 
 <h1>Lista de Categorías</h1>
 
-<a href="{{ route('categorias.create') }}"
-   class="btn btn-primary mb-3">
+<div class="mb-3">
+    <a href="{{ route('categorias.create') }}"
+       class="btn btn-primary">
 
-   Nueva Categoría
+       Nueva Categoría
 
-</a>
+    </a>
+    <a href="{{ route('dashboard') }}"
+       class="btn btn-secondary">
+
+       Volver
+
+    </a>
+</div>
 
 @if(session('success'))
 

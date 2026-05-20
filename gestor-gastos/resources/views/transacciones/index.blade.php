@@ -4,12 +4,20 @@
 
 <h1>Lista de Transacciones</h1>
 
-<a href="{{ route('transacciones.create') }}"
-   class="btn btn-primary mb-3">
+<div class="mb-3">
+    <a href="{{ route('transacciones.create') }}"
+       class="btn btn-primary">
 
-    Nueva Transacción
+        Nueva Transacción
 
-</a>
+    </a>
+    <a href="{{ route('dashboard') }}"
+       class="btn btn-secondary">
+
+        Volver
+
+    </a>
+</div>
 
 @if(session('success'))
 

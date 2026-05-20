@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <title>Gestor Financiero</title>
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+
+    <!-- NAVBAR -->
+    <nav class="bg-green-600 shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+            <h1 class="text-2xl font-bold text-white">
+                Gestor Financiero
+            </h1>
+
+            <div class="space-x-4">
+
+                <a href="{{ route('login') }}"
+                    class="text-white hover:text-gray-200 font-medium">
+
+                    Iniciar Sesión
+
                 </a>
+
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}"
+                        class="bg-white text-green-600 px-4 py-2 rounded-lg font-semibold hover:bg-gray-200 transition">
+
+                        Registrarse
+
+                    </a>
+                @endif
+
             </div>
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
-                {{ $slot }}
-            </div>
         </div>
-    </body>
+    </nav>
+
+    <!-- CONTENIDO -->
+    <main class="flex items-center justify-center py-16">
+        <div class="w-full max-w-md">
+            {{ $slot }}
+        </div>
+    </main>
+
+</body>
 </html>

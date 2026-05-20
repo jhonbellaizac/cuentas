@@ -1,57 +1,52 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Editar Cuenta</title>
+@extends('layouts.app')
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-          rel="stylesheet">
-</head>
+@section('content')
 
-<body>
+<div class="row justify-content-center">
+    <div class="col-md-6">
 
-<div class="container mt-5">
+        <h1>Editar Cuenta</h1>
 
-    <h1>Editar Cuenta</h1>
+        <form action="{{ route('cuentas.update', ['cuenta' => $cuenta->id]) }}"
+              method="POST">
 
-    <form action="{{ route('cuentas.update', ['cuenta' => $cuenta->id]) }}"
-          method="POST">
+            @csrf
+            @method('PUT')
 
-        @csrf
-        @method('PUT')
+            <div class="mb-3">
 
-        <div class="mb-3">
+                <label>Nombre</label>
 
-            <label>Nombre</label>
+                <input type="text"
+                       name="nombre"
+                       value="{{ $cuenta->nombre }}"
+                       class="form-control">
 
-            <input type="text"
-                   name="nombre"
-                   value="{{ $cuenta->nombre }}"
-                   class="form-control">
+            </div>
 
-        </div>
+            <div class="mb-3">
 
-        <div class="mb-3">
+                <label>Saldo</label>
 
-            <label>Saldo</label>
+                <input type="number"
+                       step="0.01"
+                       name="saldo"
+                       value="{{ $cuenta->saldo }}"
+                       class="form-control">
 
-            <input type="number"
-                   step="0.01"
-                   name="saldo"
-                   value="{{ $cuenta->saldo }}"
-                   class="form-control">
+            </div>
 
-        </div>
+            <button type="submit"
+                    class="btn btn-primary">
 
-        <button type="submit"
-                class="btn btn-primary">
+                Actualizar
 
-            Actualizar
+            </button>
+            <a href="{{ route('dashboard') }}" class="btn btn-info">Volver al Dashboard</a>
 
-        </button>
+        </form>
 
-    </form>
-
+    </div>
 </div>
 
-</body>
-</html>
+@endsection
