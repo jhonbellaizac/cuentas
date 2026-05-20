@@ -14,11 +14,16 @@
 
     <div class="container">
 
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{{ route('dashboard') }}">
             Gestor Financiero
         </a>
 
         <div class="navbar-nav">
+
+            <a class="nav-link"
+               href="{{ route('dashboard') }}">
+               Dashboard
+            </a>
 
             <a class="nav-link"
                href="{{ route('categorias.index') }}">

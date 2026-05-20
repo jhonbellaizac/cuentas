@@ -1,95 +1,98 @@
 @extends('layouts.app')
 
+
 @section('content')
 
-<div class="container">
+<div class="row justify-content-center">
+    <div class="col-md-6">
 
-    <h2>Nueva Transacción</h2>
+        <h2>Nueva Transacción</h2>
 
-    <form action="{{ route('transacciones.store') }}"
-          method="POST">
+        <form action="{{ route('transacciones.store') }}"
+              method="POST">
 
-        @csrf
+            @csrf
 
-        <div class="mb-3">
-            <label>Cuenta</label>
+            <div class="mb-3">
+                <label>Cuenta</label>
 
-            <select name="cuenta_id"
-                    class="form-control">
+                <select name="cuenta_id"
+                        class="form-control">
 
-                @foreach($cuentas as $cuenta)
+                    @foreach($cuentas as $cuenta)
 
-                    <option value="{{ $cuenta->id_cuenta }}">
-                        {{ $cuenta->nombre }}
-                        - Saldo: ${{ $cuenta->saldo }}
-                    </option>
+                        <option value="{{ $cuenta->id_cuenta }}">
+                            {{ $cuenta->nombre }}
+                            - Saldo: ${{ $cuenta->saldo }}
+                        </option>
 
-                @endforeach
+                    @endforeach
 
-            </select>
-        </div>
+                </select>
+            </div>
 
-        <div class="mb-3">
-            <label>Categoría</label>
+            <div class="mb-3">
+                <label>Categoría</label>
 
-            <select name="categoria_id"
-                    class="form-control">
+                <select name="categoria_id"
+                        class="form-control">
 
-                @foreach($categorias as $categoria)
+                    @foreach($categorias as $categoria)
 
-                    <option value="{{ $categoria->id_categoria }}">
-                        {{ $categoria->nombre }}
-                    </option>
+                        <option value="{{ $categoria->id_categoria }}">
+                            {{ $categoria->nombre }}
+                        </option>
 
-                @endforeach
+                    @endforeach
 
-            </select>
-        </div>
+                </select>
+            </div>
 
-        <div class="mb-3">
+            <div class="mb-3">
 
-            <label>Tipo</label>
+                <label>Tipo</label>
 
-            <select name="tipo"
-                    class="form-control">
+                <select name="tipo"
+                        class="form-control">
 
-                <option value="ingreso">Ingreso</option>
-                <option value="gasto">Gasto</option>
+                    <option value="ingreso">Ingreso</option>
+                    <option value="gasto">Gasto</option>
 
-            </select>
+                </select>
 
-        </div>
+            </div>
 
-        <div class="mb-3">
+            <div class="mb-3">
 
-            <label>Monto</label>
+                <label>Monto</label>
 
-            <input type="number"
-                   step="0.01"
-                   name="monto"
-                   class="form-control">
+                <input type="number"
+                       step="0.01"
+                       name="monto"
+                       class="form-control">
 
-        </div>
+            </div>
 
-        <div class="mb-3">
+            <div class="mb-3">
 
-            <label>Descripción</label>
+                <label>Descripción</label>
 
-            <textarea name="descripcion"
-                      class="form-control">
-            </textarea>
+                <textarea name="descripcion"
+                          class="form-control"></textarea>
 
-        </div>
+            </div>
 
-        <button type="submit"
-                class="btn btn-success">
+            <button type="submit"
+                    class="btn btn-success">
 
-            Guardar
+                Guardar
 
-        </button>
+            </button>
+            <a href="{{ route('dashboard') }}" class="btn btn-primary">Volver al Dashboard</a>
 
-    </form>
+        </form>
 
+    </div>
 </div>
 
 @endsection
